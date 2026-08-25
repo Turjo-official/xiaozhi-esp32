@@ -1,6 +1,9 @@
 #ifndef BOARD_CONFIG_H
 #define BOARD_CONFIG_H
 
+// Required build-test flag for OLED support
+#define CONFIG_OLED_SH1106_128X64 1
+
 #define AUDIO_I2S_METHOD_SIMPLEX
 
 #ifdef AUDIO_I2S_METHOD_SIMPLEX
