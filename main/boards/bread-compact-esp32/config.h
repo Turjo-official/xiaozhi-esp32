@@ -1,58 +1,29 @@
-#ifndef _BOARD_CONFIG_H_
-#define _BOARD_CONFIG_H_
+#ifndef BOARD_CONFIG_H
+#define BOARD_CONFIG_H
 
-#include <driver/gpio.h>
-
-#define AUDIO_INPUT_SAMPLE_RATE  16000
-#define AUDIO_OUTPUT_SAMPLE_RATE 24000
-
-// 如果使用 Duplex I2S 模式，请注释下面一行
 #define AUDIO_I2S_METHOD_SIMPLEX
 
 #ifdef AUDIO_I2S_METHOD_SIMPLEX
 
-#define AUDIO_I2S_MIC_GPIO_WS   GPIO_NUM_25
-#define AUDIO_I2S_MIC_GPIO_SCK  GPIO_NUM_26
-#define AUDIO_I2S_MIC_GPIO_DIN  GPIO_NUM_32
+// Microphone Pins
+#define AUDIO_I2S_MIC_GPIO_WS   GPIO_NUM_18  // Replace 18 with your WS pin
+#define AUDIO_I2S_MIC_GPIO_SCK  GPIO_NUM_19  // Replace 19 with your SCK pin
+#define AUDIO_I2S_MIC_GPIO_DIN  GPIO_NUM_23  // Replace 23 with your DIN/SD pin
 
-#define AUDIO_I2S_SPK_GPIO_DOUT GPIO_NUM_33
-#define AUDIO_I2S_SPK_GPIO_BCLK GPIO_NUM_14
-#define AUDIO_I2S_SPK_GPIO_LRCK GPIO_NUM_27
-
-#else
-
-#define AUDIO_I2S_GPIO_WS GPIO_NUM_4
-#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_5
-#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_6
-#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_7
+// Speaker Output Disabled (Set to GPIO_NUM_NC if unused or assign your I2S DAC pins)
+#define AUDIO_I2S_SPK_GPIO_DOUT GPIO_NUM_NC
+#define AUDIO_I2S_SPK_GPIO_BCLK GPIO_NUM_NC
+#define AUDIO_I2S_SPK_GPIO_LRCK GPIO_NUM_NC
 
 #endif
 
-#define BOOT_BUTTON_GPIO        GPIO_NUM_0
-#define TOUCH_BUTTON_GPIO       GPIO_NUM_5
-#define ASR_BUTTON_GPIO         GPIO_NUM_19
-#define BUILTIN_LED_GPIO        GPIO_NUM_2
+// Button & LED Pins
+#define BOOT_BUTTON_GPIO        GPIO_NUM_0   // Replace 0 with your Boot button pin
+#define TOUCH_BUTTON_GPIO       GPIO_NUM_5   // Replace 5 with your Touch button pin
+#define ASR_BUTTON_GPIO         GPIO_NUM_13  // Replace 13 with your ASR button pin
+#define BUILTIN_LED_GPIO        GPIO_NUM_2   // Replace 2 with your Status LED pin
 
-#define ML307_RX_PIN            GPIO_NUM_16
-#define ML307_TX_PIN            GPIO_NUM_17
+// Display Pins
+#define DISPLAY_SDA_PIN         GPIO_NUM_21  // Replace 21 with your Display SDA pin
 
-#define DISPLAY_SDA_PIN GPIO_NUM_4
-#define DISPLAY_SCL_PIN GPIO_NUM_15
-#define DISPLAY_WIDTH   128
-
-#if CONFIG_OLED_SSD1306_128X32
-#define DISPLAY_HEIGHT  32
-#elif CONFIG_OLED_SSD1306_128X64 || CONFIG_OLED_SH1106_128X64
-#define DISPLAY_HEIGHT  64
-#else
-#error "OLED display type is not selected"
-#endif
-
-#define DISPLAY_MIRROR_X true
-#define DISPLAY_MIRROR_Y true
-
-
-// A MCP Test: Control a lamp
-#define LAMP_GPIO GPIO_NUM_18
-
-#endif // _BOARD_CONFIG_H_
+#endif // BOARD_CONFIG_H
