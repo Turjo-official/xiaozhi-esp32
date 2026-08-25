@@ -3,7 +3,8 @@
 
 #include <driver/gpio.h>
 
-#define AUDIO_I2S_METHOD_SIMPLEX
+// Audio Pins
+#define AUDIO_I2S_METHOD_SIMPLEX 1
 
 #ifdef AUDIO_I2S_METHOD_SIMPLEX
 #define AUDIO_I2S_MIC_GPIO_WS   GPIO_NUM_18
@@ -15,11 +16,13 @@
 #define AUDIO_I2S_SPK_GPIO_LRCK GPIO_NUM_NC
 #endif
 
+// Buttons & Built-in LED
 #define BOOT_BUTTON_GPIO        GPIO_NUM_0
 #define TOUCH_BUTTON_GPIO       GPIO_NUM_5
 #define ASR_BUTTON_GPIO         GPIO_NUM_13
 #define BUILTIN_LED_GPIO        GPIO_NUM_2
 
+// Display Pins
 #define DISPLAY_SDA_PIN         GPIO_NUM_21
 #define DISPLAY_SCL_PIN         GPIO_NUM_22
 
