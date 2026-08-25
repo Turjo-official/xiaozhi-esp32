@@ -22,8 +22,5 @@
 
 #define DISPLAY_SDA_PIN         GPIO_NUM_21
 #define DISPLAY_SCL_PIN         GPIO_NUM_22
-#define DISPLAY_WIDTH           128
-#define DISPLAY_HEIGHT          64
-#define CONFIG_OLED_SH1106_128X64
 
 #endif // _BOARD_CONFIG_H_
