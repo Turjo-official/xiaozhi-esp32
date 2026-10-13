@@ -7,7 +7,7 @@ config OTA_URL
         The application will access this URL to check for new firmwares and server address.
 
 choice
-    prompt "Flash Assets"
+    prompt "Flash Assets" 
     default FLASH_DEFAULT_ASSETS if !USE_EMOTE_MESSAGE_STYLE
     default FLASH_EXPRESSION_ASSETS if USE_EMOTE_MESSAGE_STYLE
     help
